@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
         printf("        arg3 - command\n");
         printf("        Example: ./send dip 00001 2 0\n");
         printf("\n");
-        printf("  rev - Switches from REV manufactor\n");
+        printf("  rev - Switches from REV manufacturer\n");
         printf("        arg1 - the channel (a..f)\n");
         printf("        arg2 - the device number\n");
         printf("        arg3 - command\n");
