@@ -25,6 +25,9 @@ int main(int argc, char *argv[]) {
         printf("  arg1 .. argN - depending on the type the list of arguments\n");
         printf("\n");
         printf("Supported types:\n");
+        printf("  raw - Send RAW given bits\n");
+        printf("        arg1 - the bits (0..1)\n");
+        printf("\n");
         printf("  dip - Switches controlled by DIP switches\n");
         printf("        arg1 - the system code\n");
         printf("        arg2 - the unit code\n");
@@ -48,7 +51,16 @@ int main(int argc, char *argv[]) {
 	RCSwitch mySwitch = RCSwitch();
 	mySwitch.enableTransmit(PIN);
 
-    if (strcmp(argv[1], "dip") == 0) {
+    if (strcmp(argv[1], "raw") == 0) {
+        char* data = argv[2];
+
+        printf("sending data[%s]\n", data);
+
+        mySwitch.send(data);
+
+        return 0;
+
+    } else if (strcmp(argv[1], "dip") == 0) {
         char* systemCode = argv[2];
         int unitCode = atoi(argv[3]);
         int command  = atoi(argv[4]);
